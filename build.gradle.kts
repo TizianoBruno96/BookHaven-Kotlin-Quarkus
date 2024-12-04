@@ -14,6 +14,12 @@ val quarkusPlatformArtifactId: String by project
 val quarkusPlatformVersion: String by project
 
 dependencies {
+    implementation("io.quarkus:quarkus-container-image-docker")
+    implementation("io.quarkus:quarkus-hibernate-orm-panache-kotlin")
+    //implementation("io.quarkus:quarkus-jdbc-mssql")
+
+    implementation("io.quarkus:quarkus-smallrye-openapi")
+    implementation("io.quarkus:quarkus-swagger-ui")
     implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
     implementation("io.quarkus:quarkus-rest-jackson")
     implementation("io.quarkus:quarkus-kotlin")
@@ -22,10 +28,13 @@ dependencies {
     implementation("io.quarkus:quarkus-rest")
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("io.rest-assured:rest-assured")
+
+    implementation("org.projectlombok:lombok:1.18.30")
+    compileOnly("org.projectlombok:lombok:1.18.30")
 }
 
 group = "org.acme"
-version = "1.0.0-SNAPSHOT"
+version = "1.0"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_21
